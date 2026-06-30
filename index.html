@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <link rel="stylesheet" href="style.css">
+    <title>Bond Valuation Calculator</title>
+</head>
+<body>
+  <div class="container">
+
+    <div class="left">
+      <h1>Bond Valuation Calculator</h1>
+      <p class="subtitle">Calculate the fair price and yield of a bond instantly</p>
+
+      <label>Face Value (₹)</label>
+      <input type="number" id="faceValue" placeholder="e.g. 1000" />
+
+      <label>Annual Coupon Rate (%)</label>
+      <input type="number" id="couponRate" placeholder="e.g. 8" />
+
+      <label>Years to Maturity</label>
+      <input type="number" id="maturity" placeholder="e.g. 5" />
+
+      <label>Market Interest Rate (%)</label>
+      <input type="number" id="marketRate" placeholder="e.g. 7" />
+
+      <button onclick="calculate()">Calculate</button>
+      <button onclick="reset()">Reset</button>
+      <div class="bond-status" id="bondStatus">
+            <h3>🛡️ Bond Status</h3>
+            <div class="status-card" id="statusCard">
+                <div>
+                    <p class="status-title" id="statusTitle">—</p>
+                    <p class="status-desc" id="statusDesc">—</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="right" id="rightPanel">
+      <div class="result" id="result">
+            <h2>Results</h2>
+            <div id="bondBadge"></div>
+            <p class="price-label">Fair Bond Price</p>
+            <div id="bondPrice" class="big-price">—</div>
+            <div class="metric-cards">
+                <div class="metric-card">
+                    <span class="metric-icon">🎫</span>
+                    <span class="metric-label">Annual Coupon Payment</span>
+                    <span class="metric-value" id="couponPayment">—</span>
+                </div>
+            <div class="metric-card">
+                <span class="metric-icon">📈</span>
+            <span class="metric-label">Total Return</span>
+            <span class="metric-value" id="totalReturn">—</span>
+        </div>
+        <div class="metric-card">
+            <span class="metric-icon">📅</span>
+            <span class="metric-label">Years to Maturity</span>
+            <span class="metric-value" id="showMaturity">—</span>
+        </div>
+        <div class="metric-card">
+            <span class="metric-icon">💹</span>
+            <span class="metric-label">Yield to Maturity</span>
+            <span class="metric-value" id="ytm">—</span>
+        </div>
+    </div>
+</div>
+      <div style="margin-top: 28px;">
+        <canvas id="bondChart"></canvas>
+      </div>
+       <div class="summary" id="summary">
+            <h3>Investment Insight</h3>
+            <ul id="summaryList"></ul>
+        </div>
+        
+    </div>
+
+  </div>
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+  <script src="script.js"></script>
+</body>
+</html>
